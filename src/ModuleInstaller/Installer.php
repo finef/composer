@@ -7,9 +7,12 @@ use Composer\Installer\LibraryInstaller;
 
 class Installer extends LibraryInstaller
 {
-    /**
-     * {@inheritDoc}
-     */
+
+    public function supports($packageType)
+    {
+        return 'fine-module' === $packageType;
+    }
+
     public function getInstallPath(PackageInterface $package)
     {
         $extra = $package->getExtra();
@@ -26,11 +29,15 @@ class Installer extends LibraryInstaller
         return "module/{$extra['fine-module']['name']}";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function supports($packageType)
+    public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        return 'fine-module' === $packageType;
+        parent::install($repo, $package);
+
+        $config = require "config/module.php";
+        
+        $config[$package->getExtra()['fine-module']['name']] = $package->getExtra()['fine-module']['class'];
+
+        file_put_contents("config/module.php", "<?php\n\nreturn " . var_export($config, true) . ";\n");
+
     }
 }
