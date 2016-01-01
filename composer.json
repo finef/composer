@@ -1,0 +1,14 @@
+{
+    "name": "fine/composer",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {"Fine\\Composer": "src/"}
+    },
+    "extra": {
+        "class": "Fine\\Composer\\ModuleInstaller\\Plugin"
+    },
+    "require": {
+        "composer-plugin-api": "1.0.0"
+    }
+}
