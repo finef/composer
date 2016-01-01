@@ -3,7 +3,7 @@
     "type": "composer-plugin",
     "license": "MIT",
     "autoload": {
-        "psr-0": {"Fine\\Composer": "src/"}
+        "psr-4": {"Fine\\Composer": "src/"}
     },
     "extra": {
         "class": "Fine\\Composer\\ModuleInstaller\\Plugin"
