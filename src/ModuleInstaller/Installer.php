@@ -29,16 +29,5 @@ class Installer extends LibraryInstaller
 
         return "module/{$extra['fine-module']['name']}";
     }
-    
-    public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
-    {
-        parent::install($repo, $package);
 
-        $config = require "config/module.php";
-
-        $config[$package->getExtra()['fine-module']['name']] = $package->getExtra()['fine-module']['class'];
-
-        file_put_contents("config/module.php", "<?php\n\nreturn " . var_export($config, true) . ";\n");
-
-    }
 }
