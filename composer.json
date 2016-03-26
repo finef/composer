@@ -6,7 +6,7 @@
         "psr-4": {"Fine\\Composer\\": "src/"}
     },
     "extra": {
-        "class": "Fine\\Composer\\ModuleInstaller\\Plugin"
+        "class": "Fine\\Composer\\Plugin"
     },
     "require": {
         "composer-plugin-api": "1.0.0"

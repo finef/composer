@@ -1,6 +1,6 @@
 <?php
 
-namespace Fine\Composer\ModuleInstaller;
+namespace Fine\Composer;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
